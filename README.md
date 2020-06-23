@@ -31,5 +31,5 @@ And open your browser at the URL [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 In order to view this documentation on Internet with the 
 [ReadTheDocs](https://readthedocs.org/) service, please, check out 
-[http://rackio-framework.rtfd.io/](http://tulipan-framework.rtfd.io/)
+[http://tulipan-framework.rtfd.io/](http://tulipan-framework.rtfd.io/)
 
