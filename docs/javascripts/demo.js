@@ -60,3 +60,20 @@ new Tulipan({
       }
     }
 })
+
+new Tulipan({
+  el: '#demo5-app',
+  data: {
+    dog_url: 'https://images.dog.ceo/breeds/mexicanhairless/n02113978_2508.jpg'
+  },
+  methods: {
+    fetchDog: function () {
+      this.$http.get('https://dog.ceo/api/breeds/image/random')
+        .then(function (res){
+          this.$set("dog_url", res.data.message);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
