@@ -17,7 +17,7 @@ We will use the following resources from JSONPlaceholder.
 | todos | 200 todos | https://jsonplaceholder.typicode.com/todos |
 | users | 10 users | https://jsonplaceholder.typicode.com/users |
 
-Since this resources have relations, we can create a simple interface to navigate through these relations, like posts and comments related to posts, or posts related to users.
+Since these resources have relations, we can create a simple interface to navigate through these relations, like posts and comments related to posts, or posts related to users.
 
 <div class="tabset">
   <!-- Tab 1 -->
