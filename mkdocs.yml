@@ -8,6 +8,7 @@ nav:
   - Home: index.md
   - Getting Started: started.md
   - Web Requests: requests.md
+  - Routing: routing.md
 
 theme: 
   name: material

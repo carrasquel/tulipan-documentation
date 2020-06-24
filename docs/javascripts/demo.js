@@ -77,3 +77,9 @@ new Tulipan({
     }
   }
 })
+
+// materialize
+
+$(document).ready(function(){
+  $('.tabs').tabs();
+});
