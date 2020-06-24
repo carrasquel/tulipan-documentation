@@ -2,7 +2,7 @@
 
 Another important feature in Single Page Application development is routing, this client-side routing allows users to navigate through our application where no full page reload will happend, this way you can use *$http* service to fetch partial information from the server, you can also use history buttons without full page reload.
 
-The routing configuration is done in the istance configuration object, but the navigation is done through the *navigate* service.
+The routing configuration is done in the istance configuration object, but the navigation is done through the *$router.navigate* service.
 
 ## A simple SPA with Routing
 
@@ -19,34 +19,296 @@ We will use the following resources from JSONPlaceholder.
 
 Since these resources have relations, we can create a simple interface to navigate through these relations, like posts and comments related to posts, or posts related to users.
 
-<div class="tabset">
+HTML
+
+```html
+<div id="app" class="tabset">
   <!-- Tab 1 -->
   <input type="radio" name="tabset" id="tab1" aria-controls="posts" checked>
-  <label for="tab1">Posts</label>
+  <label for="tab1" tp-on:click="navigate('')">Posts</label>
   <!-- Tab 2 -->
   <input type="radio" name="tabset" id="tab2" aria-controls="todos">
-  <label for="tab2">Todos</label>
+  <label for="tab2" tp-on:click="navigate('todos')">Todos</label>
   <!-- Tab 3 -->
   <input type="radio" name="tabset" id="tab3" aria-controls="users">
-  <label for="tab3">Users</label>
-  
-  <div class="tab-panels">
-    <section id="posts" class="tab-panel">
-      <h2>Posts</h2>
-      <p><strong>Overall Impression:</strong> An elegant, malty German amber lager with a clean, rich, toasty and bready malt flavor, restrained bitterness, and a dry finish that encourages another drink. The overall malt impression is soft, elegant, and complex, with a rich aftertaste that is never cloying or heavy.</p>
-      <p><strong>History:</strong> As the name suggests, brewed as a stronger “March beer” in March and lagered in cold caves over the summer. Modern versions trace back to the lager developed by Spaten in 1841, contemporaneous to the development of Vienna lager. However, the Märzen name is much older than 1841; the early ones were dark brown, and in Austria the name implied a strength band (14 °P) rather than a style. The German amber lager version (in the Viennese style of the time) was first served at Oktoberfest in 1872, a tradition that lasted until 1990 when the golden Festbier was adopted as the standard festival beer.</p>
-    </section>
-    <section id="todos" class="tab-panel">
-      <h2>Todos</h2>
-      <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
-      <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
-    </section>
-    <section id="users" class="tab-panel">
-      <h2>Users</h2>
-      <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
-      <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
-    </section>
-  </div>
-  
+  <label for="tab3" tp-on:click="navigate('users')">Users</label>
 </div>
 
+<router-view></router-view>
+
+<section id="posts" class="tab-panel">
+  <h2>Posts</h2>
+  <ul>
+    <li tp-for="post in posts">{{ post.title }}</li>
+  </ul>
+</section>
+<section id="todos" class="tab-panel">
+  <h2>Todos</h2>
+  <ul>
+    <li tp-for="todo in todos">{{ todo.title }}</li>
+  </ul>
+</section>
+<section id="users" class="tab-panel">
+  <h2>Users</h2>
+  <ul>
+    <li tp-for="user in users">{{ user.name }}({{ user.username}}) - {{ user.email }}</li>
+  </ul>
+</section>
+```
+
+JavaScript
+```javascript
+// navigation app
+new Tulipan({
+  el: '#app',
+  data: {
+  },
+  methods: {
+    navigate: function (page) {
+      this.$router.navigate("/" + page);
+    }
+  }
+})
+
+// posts app
+new Tulipan({
+  el: '#posts',
+  route: "/",
+  data: {
+    posts: []
+  },
+  methods: {
+    after: function(){
+      this.fetchPosts();
+    },
+    fetchPosts: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function (res){
+          this.$set("posts", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+// todos app
+new Tulipan({
+  el: '#todos',
+  route: "/todos",
+  data: {
+    todos: []
+  },
+  methods: {
+    after: function(){
+      this.fetchTodos();
+    },
+    fetchTodos: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/todos')
+        .then(function (res){
+          this.$set("todos", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+// users app
+new Tulipan({
+  el: '#users',
+  route: "/users",
+  data: {
+    users: []
+  },
+  methods: {
+    after: function(){
+      this.fetchUsers();
+    },
+    fetchUsers: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/users')
+        .then(function (res){
+          this.$set("users", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+```
+
+Which will render
+
+<div class="demo">
+  <div id="demo6-app" class="tabset">
+    <!-- Tab 1 -->
+    <input type="radio" name="tabset" id="tab1" aria-controls="posts" checked>
+    <label for="tab1" tp-on:click="navigate('')">Posts</label>
+    <!-- Tab 2 -->
+    <input type="radio" name="tabset" id="tab2" aria-controls="todos">
+    <label for="tab2" tp-on:click="navigate('todos')">Todos</label>
+    <!-- Tab 3 -->
+    <input type="radio" name="tabset" id="tab3" aria-controls="users">
+    <label for="tab3" tp-on:click="navigate('users')">Users</label>
+  </div>
+
+  <router-view></router-view>
+
+  <section id="posts" class="tab-panel">
+      <h2>Posts</h2>
+      <ul>
+        <li tp-for="post in posts">{{ post.title }}</li>
+      </ul>
+  </section>
+  <section id="todos" class="tab-panel">
+    <h2>Todos</h2>
+    <ul>
+      <li tp-for="todo in todos">{{ todo.title }}</li>
+    </ul>
+  </section>
+  <section id="users" class="tab-panel">
+    <h2>Users</h2>
+    <ul>
+      <li tp-for="user in users">{{ user.name }}({{ user.username}}) - {{ user.email }}</li>
+    </ul>
+  </section>
+</div>
+
+## Adding subroutes
+
+Each resource display a list of elements in which each element has its own detailed data and information. The idea now is to display a post body a its comments.
+
+Let's add a new section to show post details
+
+HTML
+```html
+<section id="post-detail" class="tab-panel">
+  <h2>Post</h2>
+  <b>{{ post.title }}</b>
+  <p>{{ post.body }}</p>
+</section>
+```
+
+Let's create a new Tulipan instance to handle this template
+
+JavaScript
+```javascript
+new Tulipan({
+  el: '#post-detail',
+  route: "/posts/:postId"
+  data: {
+    post: {}
+  },
+  methods: {
+    after: function(params){
+      var postId = params.postId;
+      this.fetchPost(postId);
+    },
+    fetchPost: function (postId) {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts/' + postId)
+        .then(function (res){
+          this.$set("post", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+```
+
+Let's add a link to navigate to each post
+
+
+HTML
+```html
+<section id="posts" class="tab-panel">
+  <h2>Posts</h2>
+  <ul>
+    <li tp-for="post in posts">
+    {{ post.title }}
+    <a href="javascript:void(0)" tp-on:click="viewPost(post.id)">View</a>
+    </li>
+  </ul>
+</section>
+```
+
+and a fix to the posts JavaScript application in order to navigate on click.
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#posts',
+  route: "/"
+  data: {
+    posts: []
+  },
+  methods: {
+    after: function(){
+      this.fetchPosts();
+    },
+    fetchPosts: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function (res){
+          this.$set("posts", res.data.slice(0, 20));
+        }, function(err){
+          console.log(err);
+        }) 
+    },
+    viewPost(index){
+      this.$router.navigate("/posts/" + index);
+    }
+  }
+})
+```
+
+All these will render the following.
+
+<div class="demo">
+  <div id="demo7-app">
+    <div class="tabset">
+      <!-- Tab 1 -->
+      <input type="radio" name="tabset" id="tab4" aria-controls="posts2" checked>
+      <label for="tab4" tp-on:click="navigate('posts2')">Posts</label>
+      <!-- Tab 2 -->
+      <input type="radio" name="tabset" id="tab5" aria-controls="todos2">
+      <label for="tab5" tp-on:click="navigate('todos2')">Todos</label>
+      <!-- Tab 3 -->
+      <input type="radio" name="tabset" id="tab6" aria-controls="users2">
+      <label for="tab6" tp-on:click="navigate('users2')">Users</label>
+    </div>
+
+    <router-view></router-view>
+  </div>
+
+  <section id="posts2" class="tab-panel">
+      <h2>Posts</h2>
+      <ul>
+        <li tp-for="post in posts">
+        {{ post.title }}
+        <a href="javascript:void(0)" tp-on:click="viewPost(post.id)">View</a>
+        </li>
+      </ul>
+  </section>
+  <section id="todos2" class="tab-panel">
+    <h2>Todos</h2>
+    <ul>
+      <li tp-for="todo in todos">{{ todo.title }}</li>
+    </ul>
+  </section>
+  <section id="users2" class="tab-panel">
+    <h2>Users</h2>
+    <ul>
+      <li tp-for="user in users">{{ user.name }}({{ user.username}}) - {{ user.email }}</li>
+    </ul>
+  </section>
+  <section id="post-detail" class="tab-panel">
+    <h2>Post</h2>
+    <b>{{ post.title }}</b>
+    <p>{{ post.body }}</p>
+  </section>
+</div>
+
+## Handling Parameters
+
+## Handling Query Strings

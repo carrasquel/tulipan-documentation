@@ -78,8 +78,187 @@ new Tulipan({
   }
 })
 
-// materialize
+new Tulipan({
+  el: '#demo6-app',
+  data: {
+  },
+  methods: {
+    navigate: function (page) {
+      this.$router.navigate("/" + page);
+    }
+  }
+})
 
-$(document).ready(function(){
-  $('.tabs').tabs();
-});
+new Tulipan({
+  el: '#posts',
+  route: "/",
+  data: {
+    posts: []
+  },
+  methods: {
+    after: function(){
+      this.fetchPosts();
+    },
+    fetchPosts: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function (res){
+          this.$set("posts", res.data.slice(0, 20));
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+new Tulipan({
+  el: '#todos',
+  route: "/todos",
+  data: {
+    todos: []
+  },
+  methods: {
+    after: function(){
+      this.fetchTodos();
+    },
+    fetchTodos: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/todos')
+        .then(function (res){
+          this.$set("todos", res.data.slice(0, 20));
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+new Tulipan({
+  el: '#users',
+  route: "/users",
+  data: {
+    users: []
+  },
+  methods: {
+    after: function(){
+      this.fetchUsers();
+    },
+    fetchUsers: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/users')
+        .then(function (res){
+          this.$set("users", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+new Tulipan({
+  el: '#demo7-app',
+  data: {
+  },
+  methods: {
+    navigate: function (page) {
+      this.$router.navigate("/" + page);
+    }
+  }
+})
+
+new Tulipan({
+  el: '#posts2',
+  route: {
+    main: "#demo7-app",
+    route: "/posts2"
+  },
+  data: {
+    posts: []
+  },
+  methods: {
+    after: function(){
+      this.fetchPosts();
+    },
+    fetchPosts: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function (res){
+          this.$set("posts", res.data.slice(0, 20));
+        }, function(err){
+          console.log(err);
+        }) 
+    },
+    viewPost(index){
+      this.$router.navigate("/posts/" + index);
+    }
+  }
+})
+
+new Tulipan({
+  el: '#todos2',
+  route: {
+    main: "#demo7-app",
+    route: "/todos2"
+  },
+  data: {
+    todos: []
+  },
+  methods: {
+    after: function(){
+      this.fetchTodos();
+    },
+    fetchTodos: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/todos')
+        .then(function (res){
+          this.$set("todos", res.data.slice(0, 20));
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+new Tulipan({
+  el: '#users2',
+  route: {
+    main: "#demo7-app",
+    route: "/users2"
+  },
+  data: {
+    users: []
+  },
+  methods: {
+    after: function(){
+      this.fetchUsers();
+    },
+    fetchUsers: function () {
+      this.$http.get('https://jsonplaceholder.typicode.com/users')
+        .then(function (res){
+          this.$set("users", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
+
+new Tulipan({
+  el: '#post-detail',
+  route: {
+    main: "#demo7-app",
+    route: "/posts/:postId"
+  },
+  data: {
+    post: {}
+  },
+  methods: {
+    after: function(params){
+      var postId = params.postId;
+      this.fetchPost(postId);
+    },
+    fetchPost: function (postId) {
+      this.$http.get('https://jsonplaceholder.typicode.com/posts/' + postId)
+        .then(function (res){
+          this.$set("post", res.data);
+        }, function(err){
+          console.log(err);
+        }) 
+    }
+  }
+})
