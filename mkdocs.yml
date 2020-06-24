@@ -1,6 +1,6 @@
 site_name: Tulipan
 site_description: 'Documentation for Tulipan.js, a simple and progressive, JavaScript Framework for building Single Page Applications on the web.'
-site_url: 'http://tulipan-framework.rtfd.io/'
+site_url: 'http://tulipan-documentation.readthedocs.io'
 site_author: https://github.com/carrasquel/tulipan-documentation/graphs/contributors
 repo_url: http://github.com/carrasquel/tulipan
 remote_branch: master
