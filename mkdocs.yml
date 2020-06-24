@@ -6,9 +6,17 @@ repo_url: http://github.com/carrasquel/tulipan
 remote_branch: master
 nav:
   - Home: index.md
-  - Getting Started: cli.md
+  - Getting Started: started.md
 
-theme: material
+theme: 
+  name: material
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/tulipan.min.js
+  - javascripts/demo.js
 
 extra:
   social:
