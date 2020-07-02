@@ -195,7 +195,7 @@ JavaScript
 ```javascript
 new Tulipan({
   el: '#post-detail',
-  route: "/posts/:postId"
+  route: "/posts/:postId",
   data: {
     post: {}
   },
@@ -239,7 +239,7 @@ JavaScript
 
 new Tulipan({
   el: '#posts',
-  route: "/"
+  route: "/",
   data: {
     posts: []
   },
@@ -311,4 +311,46 @@ All these will render the following.
 
 ## Handling Parameters
 
+You can handle parameters inside the *after* special methods buy supplying the first argument.
+
+JavaScript
+```javascript
+new Tulipan({
+  ...
+  route: "/posts/:postId",
+  data: {
+    post: {}
+  },
+  methods: {
+    after: function(params){
+      var postId = params.postId;
+    },
+    ...
+  }
+})
+```
+
+the *params* argument is an object with property names equal to the format provided in the *route* option.
+
 ## Handling Query Strings
+
+You can also handle query strings inside the *after* special method buy supplying a second argument.
+
+JavaScript
+```javascript
+new Tulipan({
+  ...
+  route: "/posts/:postId",
+  data: {
+    post: {}
+  },
+  methods: {
+    after: function(params, query){
+      // If we have /posts/12?sortby=inc as a url then  
+      var postId = params.postId;
+      // query = sortby=inc
+    },
+    ...
+  }
+})
+```
