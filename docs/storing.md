@@ -23,7 +23,7 @@ vm.$store.clearAll();
 
 // Loop over all stored values
 vm.$store.each(function(value, key) {
-	console.log(key, '==', value)
+  console.log(key, '==', value)
 })
 ```
 
