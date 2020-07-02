@@ -28,6 +28,7 @@ or use via npm:
 
 ```bash
 npm install tulipan --save
+```
 
 # Integration
 
