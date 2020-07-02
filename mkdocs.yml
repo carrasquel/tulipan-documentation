@@ -7,8 +7,12 @@ remote_branch: master
 nav:
   - Home: index.md
   - Getting Started: started.md
+  - Bindings: bindings.md
+  - Renderings: renderings.md
+  - Filters: filters.md
   - Web Requests: requests.md
   - Routing: routing.md
+  - Storing: storing.md
 
 theme: 
   name: material
