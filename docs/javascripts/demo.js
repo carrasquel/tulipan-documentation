@@ -90,6 +90,29 @@ new Tulipan({
 })
 
 new Tulipan({
+  el: '#bindings1',
+  data: {
+    message: 'This is an example text'
+  }
+})
+
+new Tulipan({
+  el: '#bindings2',
+  data: {
+    raw: '<span><b>This is an example text</b></span>'
+  }
+})
+
+new Tulipan({
+  el: '#bindings3',
+  data: {
+    age: 21,
+    older: true,
+    cocktail: "Vodka Martini"
+  }
+})
+
+new Tulipan({
   el: '#posts',
   route: "/",
   data: {
