@@ -21,7 +21,7 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
-  - javascripts/tulipan.js
+  - javascripts/tulipan.min.js
   - javascripts/demo.js
 
 extra:
