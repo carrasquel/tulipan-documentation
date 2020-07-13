@@ -96,4 +96,4 @@ Which will render
    <span> - Favorite Cocktail: {{ cocktail.toUpperCase() }}</span>
 </div>
 
-You can also create custom filters and pipe them in order to perform most advanced data processing.s
+You can also create custom filters and pipe them in order to perform most advanced data processing.
