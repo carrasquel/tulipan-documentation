@@ -113,6 +113,51 @@ new Tulipan({
 })
 
 new Tulipan({
+  el: '#renderings1',
+  data: {
+    cocktails: [
+        "Bronx",
+        "Daiquiri",
+        "Manhattan",
+        "Tom Collins",
+        "Piña Colada"
+    ]
+  }
+})
+
+new Tulipan({
+  el: '#renderings2',
+  data: {
+    cocktails: [
+        "Bronx",
+        "Daiquiri",
+        "Manhattan",
+        "Tom Collins",
+        "Piña Colada"
+    ]
+  }
+})
+
+new Tulipan({
+  el: '#renderings3',
+  data: {
+    cocktails: [
+        "Bronx",
+        "Daiquiri",
+        "Manhattan",
+        "Tom Collins",
+        "Piña Colada"
+    ]
+  },
+
+  methods: {
+    display: function(index){
+      alert(this.cocktails[index]);
+    }
+  }
+})
+
+new Tulipan({
   el: '#posts',
   route: "/",
   data: {
