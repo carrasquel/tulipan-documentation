@@ -33,6 +33,9 @@ google_analytics:
   - 'UA-125411854-3'
   - 'auto'
 
+plugins:
+    - pdf-export:
+        combined: true
+
 markdown_extensions:
   - codehilite
-
