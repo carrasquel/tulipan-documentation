@@ -96,10 +96,21 @@ new Tulipan({
 
 Which will render
 
-<div id="demo2-app" class="demo">
+<div id="demo2-app" class="demo web-view">
   <ul>
     <li tp-for="todo in todos">
       {{ todo.text }}
+    </li>
+  </ul>
+</div>
+<div id="demo2-app-pdf" class="pdf-view">
+  <ul>
+    <li>
+      Clean the room!
+    </li><li>
+      Take out trash!
+    </li><li>
+      Buy groceries
     </li>
   </ul>
 </div>

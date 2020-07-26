@@ -100,6 +100,10 @@ input {
     max-width: 65em;
   }
 
+  .pdf-view {
+    display: none;
+  }
+
   @page {
     size: a4 portrait;
     margin: 25mm 10mm 25mm 10mm;
@@ -116,5 +120,9 @@ input {
     }
     @top-right {
         content: 'Page ' counter(page);
+    }
+    
+    @web-view {
+      display: none;
     }
 }
