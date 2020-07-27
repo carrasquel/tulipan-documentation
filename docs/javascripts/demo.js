@@ -158,6 +158,38 @@ new Tulipan({
 })
 
 new Tulipan({
+  el: '#demo8-app',
+  data: {
+    percents: [38.564, 49.242, 80.231],
+    smalls: [0.000231, 0.000034, 0.00000045, 0.2],
+    calories: [200, 500, 700, 150]
+
+  },
+
+  filters: {
+    sum: function (value) {
+      return value.reduce(function(a,b){
+        return a + b
+      }, 0);
+    },
+
+    scientific: function (value) {
+      if (value != null){
+        return value.toExponential(2);
+      }
+      return value;
+    },
+
+    percent: function (value) {
+      if (value != null){
+        return value.toFixed(2) + " %";
+      }
+      return value;
+    }
+  }
+})
+
+new Tulipan({
   el: '#posts',
   route: "/",
   data: {
