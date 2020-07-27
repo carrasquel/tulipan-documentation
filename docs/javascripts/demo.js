@@ -13,10 +13,10 @@ new Tulipan({
             { text: 'Take out trash!' },
             { text: 'Buy groceries' }
         ],
-        visible: "hidden"
+        display: "none"
     },
     ready: function(){
-      this.visible = "visible";
+      this.display = "";
     }
 })
 

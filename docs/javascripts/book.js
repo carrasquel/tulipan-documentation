@@ -6,9 +6,9 @@ new Tulipan({
         { text: 'Take out trash!' },
         { text: 'Buy groceries' }
       ],
-      visible: "visible"
+      display: ""
     },
     ready: function(){
-        this.visible = "hidden";
+        this.display = "none";
     }
   })
