@@ -23,6 +23,7 @@ extra_css:
 extra_javascript:
   - javascripts/tulipan.min.js
   - javascripts/demo.js
+  - javascripts/book.js
 
 extra:
   social:

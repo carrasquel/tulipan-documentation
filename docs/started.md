@@ -96,14 +96,14 @@ new Tulipan({
 
 Which will render
 
-<div id="demo2-app" class="demo web-view">
+<div id="demo2-app" class="demo"  style="visibility: hidden" tp-bind:style="{ visibility: visible }">
   <ul>
     <li tp-for="todo in todos">
       {{ todo.text }}
     </li>
   </ul>
 </div>
-<div id="demo2-app-pdf" class="pdf-view">
+<div id="demo2-pdf" class="demo" style="visibility: visible" tp-bind:style="{ visibility: visible }">
   <ul>
     <li>
       Clean the room!
