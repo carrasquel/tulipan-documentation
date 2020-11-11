@@ -5,14 +5,16 @@ site_author: https://github.com/carrasquel/tulipan-documentation/graphs/contribu
 repo_url: http://github.com/carrasquel/tulipan
 remote_branch: master
 nav:
-  - Home: index.md
-  - Getting Started: started.md
-  - Bindings: bindings.md
-  - Renderings: renderings.md
-  - Filters: filters.md
-  - Web Requests: requests.md
-  - Routing: routing.md
-  - Storing: storing.md
+  - Getting Started:
+    - Home: index.md
+    - Getting Started: started/started.md
+  - User Guide:
+    - Bindings: guide/bindings.md
+    - Renderings: guide/renderings.md
+    - Filters: guide/filters.md
+    - Web Requests: guide/requests.md
+    - Routing: guide/routing.md
+    - Storing: guide/storing.md
 
 theme: 
   name: material
