@@ -116,6 +116,59 @@ new Tulipan({
   }
 })
 
+var vm = new Tulipan({
+  el: '#properties1',
+  data: {
+    myAge: 20
+  },
+  computed: {
+    // a computed getter
+    myDadAge: function () {
+      // `this` points to the vm instance
+      return this.myAge + 35
+    }
+  }
+})
+
+var vm = new Tulipan({
+  el: '#properties2',
+  data: {
+    temperatureInCelsius: 24, 
+  },
+  computed: {
+    temperatureInFahrenheit: function(){
+        return this.temperatureInCelsius*1.8 + 32
+    }  
+  }
+})
+
+var vm = new Tulipan({
+  el: '#properties3',
+  data: {
+    firstName: 'Daniel', 
+    lastName: 'Smith',
+    role: 'Engineer',
+    currentProject: 'Dogs App'
+  },
+  computed: {
+    employee: {
+    // getter
+    get: function () {
+      return this.role + ' ' + this.firstName + ' ' + this.lastName + ', currently working on ' + this.currentProject
+    },
+    // setter
+    set: function (newValue) {
+      var dataItems = newValue.split(' ')
+      this.firstName = dataItems[0]
+      this.lastName = dataItems[dataItems.length - 3]
+      this.role = dataItems[dataItems.length - 2]
+      this.currentProject = dataItems[dataItems.length - 1]
+    }
+  }
+}
+})
+
+
 new Tulipan({
   el: '#renderings1',
   data: {

@@ -226,6 +226,6 @@ Which will render
   </ul>
 </div>
 
-pretty cool right?
+Pretty cool right?
 
 This was the basic on Tulipan.js, in the following sections you will find how to perform more advanced front-end features. So you can create Single Page Applications as soon as you can say Tulipan.
