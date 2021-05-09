@@ -42,7 +42,26 @@ Which will render
 
 Tulipan is aware that vm.myDadAge depends on vm.myAge, so it will update any bindings that depends on vm.myDadAge when vm.myAge changes.
 
-Computed properties can also be used when you have data that changes based on other data as follows:
+## Comparing computed property with $watch
+
+When you have some data that changes based on other data, one idea could be to use $watch, which is an API method provided by Tulipan.js that lets you observe data changes in a Tulipan instance. However, we highly recommend using computed properties instead. Consider the following example:
+
+JavaScript
+```javascript
+
+var vm = new Tulipan({
+  el: '#app',
+  data: {
+    temperatureInCelsius: 24, 
+    temperatureInFahrenheit: 75
+  }
+})
+vm.$watch('temperatureInCelsius', function (val){
+  this.temperatureInFahrenheit = val*1.8 + 32
+})
+```
+
+This code is imperative and repetitive. Let's compare it with a computed property version:
 
 JavaScript
 ```javascript
@@ -72,6 +91,8 @@ Which will render
 <div id="properties2" class="demo">
     The temperature is {{ temperatureInFahrenheit }}°F.
 </div>
+
+A lot better, isn't it?
 
 
 ## Computed setters
