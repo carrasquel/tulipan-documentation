@@ -142,33 +142,6 @@ var vm = new Tulipan({
   }
 })
 
-var vm = new Tulipan({
-  el: '#properties3',
-  data: {
-    firstName: 'Daniel', 
-    lastName: 'Smith',
-    role: 'Engineer',
-    currentProject: 'Dogs App'
-  },
-  computed: {
-    employee: {
-    // getter
-    get: function () {
-      return this.role + ' ' + this.firstName + ' ' + this.lastName + ', currently working on ' + this.currentProject
-    },
-    // setter
-    set: function (newValue) {
-      var dataItems = newValue.split(' ')
-      this.firstName = dataItems[0]
-      this.lastName = dataItems[dataItems.length - 3]
-      this.role = dataItems[dataItems.length - 2]
-      this.currentProject = dataItems[dataItems.length - 1]
-    }
-  }
-}
-})
-
-
 new Tulipan({
   el: '#renderings1',
   data: {

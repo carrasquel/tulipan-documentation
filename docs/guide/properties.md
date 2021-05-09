@@ -102,42 +102,21 @@ Computed properties are by default getter-only, but you can also provide a sette
 JavaScript
 ```javascript
 
-var vm = new Tulipan({
-  el: '#app',
-  data: {
-    firstName: 'Daniel', 
-    lastName: 'Smith',
-    role: 'Engineer',
-    currentProject: 'Dogs App'
-  },
-  computed: {
-    employee: {
+// ...
+computed: {
+  fullName: {
     // getter
     get: function () {
-      return this.role + ' ' + this.firstName + ' ' + this.lastName + ', currently working on ' + this.currentProject
+      return this.firstName + ' ' + this.lastName
     },
     // setter
     set: function (newValue) {
-      var dataItems = newValue.split(' ')
-      this.firstName = dataItems[0]
-      this.lastName = dataItems[dataItems.length - 3]
-      this.role = dataItems[dataItems.length - 2]
-      this.currentProject = dataItems[dataItems.length - 1]
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
     }
   }
 }
-})
+// ...
 ```
-
-HTML
-```html
-<div id="app">
-  {{ employee }}
-</div>
-```
-
-Which will render
-
-<div id="properties3" class="demo">
-    {{ employee }} 
-</div>
+When vm.fullName = ‘Daniel Smith’ is called, the setter will be called, and vm.firstName and vm.lastName will be updated accordingly. Since the get method of fullName depends on those, it will be recalculated.
