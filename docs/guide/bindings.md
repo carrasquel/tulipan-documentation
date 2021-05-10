@@ -252,8 +252,8 @@ new Tulipan({
   el: '#app',
   data: {
     myFirstStyleObject:{ 
-    color: 'green',
-    fontSize: '50px'
+      color: 'green',
+      fontSize: '50px'
     },
     mySecondStyleObject:{
       fontFamily: 'verdana',
@@ -275,3 +275,272 @@ Which will render
 ```html
 <div style="color: green; font-size: 50px; font-family: verdana; text-align: center;"></div>
 ```
+
+## Form Input Bindings
+
+### Basics Usage 
+
+Updating data based on input users is pretty easy using Tulipan.js, with the **tp-model** directive you can create two-way data binding on form input and text area elements. Let's see some examples:
+
+#### Text
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    message: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>This is a message: {{ message }}</span>
+  <br>
+  <input type="text" tp-model="message" placeholder="you can edit me!">
+</div>
+```
+
+Which will render
+
+<div id="bindings4" class="demo">
+  <span>This is a message: {{ message }}</span>
+  <br>
+  <input type="text" tp-model="message" placeholder="you can edit me!">
+</div>
+
+#### Multiline text
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    message: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>Hi! I'm a message:</span>
+  <p>{{ message }}</p>
+  <br>
+  <textarea tp-model="message" placeholder="You can write a lot of lines!"></textarea>
+</div>
+```
+
+Which will render
+
+<div id="bindings5" class="demo">
+  <span>Hi! I'm a message:</span>
+  <p>{{ message }}</p>
+  <br>
+  <textarea tp-model="message" placeholder="You can write a lot of lines!"></textarea>
+</div>
+
+#### Checkbox
+
+Single checkbox:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    checked: false
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <input type="checkbox" id="checkbox" tp-model="checked">{{checked}}
+</div>
+```
+
+Which will render
+<div id="bindings6" class="demo">
+  <input type="checkbox" id="checkbox" tp-model="checked">{{checked}}
+</div>
+
+Multiple checkbox:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    checkedLanguages: []
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>You can pick many languages!</span>
+  <br>
+  <input type="checkbox" id="python" value="Python" tp-model="checkedLanguages">
+  <label for="python">Python</label>
+  <input type="checkbox" id="javascript" value="JavaScript" tp-model="checkedLanguages">
+  <label for="javascript">JavaScrpit</label>
+  <input type="checkbox" id="go" value="Go" tp-model="checkedLanguages">
+  <label for="go">Go</label>
+  <br>
+  <span>I choose: {{ checkedLanguages | json }}</span>
+</div>
+```
+
+Which will render
+
+<div id="bindings7" class="demo">
+  <span>You can pick many languages!</span>
+  <br>
+  <input type="checkbox" id="python" value="Python" tp-model="checkedLanguages">
+  <label for="python">Python</label>
+  <input type="checkbox" id="javascript" value="JavaScript" tp-model="checkedLanguages">
+  <label for="javascript">JavaScrpit</label>
+  <input type="checkbox" id="go" value="Go" tp-model="checkedLanguages">
+  <label for="go">Go</label>
+  <br>
+  <span>I choose: {{ checkedLanguages | json }}</span>
+</div>
+
+#### Radio
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    picked: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>You can pick only one language!</span>
+  <br>
+  <input type="radio" id="python" value="Python" tp-model="picked">
+  <label for="python">Python</label>
+  <br>
+  <input type="radio" id="javascript" value="JavaScript" tp-model="picked">
+  <label for="javascript">JavaScript</label>
+  <br>
+  <input type="radio" id="go" value="Go" tp-model="picked">
+  <label for="go">Go</label>
+  <br>
+  <span>I want to study: {{ picked }}</span>
+</div>
+```
+
+Which will render
+
+<div id="bindings8" class="demo">
+  <span>You can pick only one language!</span>
+  <br>
+  <input type="radio" id="python" value="Python" tp-model="picked">
+  <label for="python">Python</label>
+  <br>
+  <input type="radio" id="javascript" value="JavaScript" tp-model="picked">
+  <label for="javascript">JavaScript</label>
+  <br>
+  <input type="radio" id="go" value="Go" tp-model="picked">
+  <label for="go">Go</label>
+  <br>
+  <span>I want to study: {{ picked }}</span>
+</div>
+
+#### Select
+
+Single select:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    selected: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+<span>You can select one</span>
+<br>
+<select tp-model="selected">
+  <option selected>PHP</option>
+  <option>Ruby</option>
+  <option>C#</option>
+</select>
+<span>Selected: {{ selected }}</span>
+</div>
+```
+
+Which will render
+
+<div id="bindings9" class="demo">
+<span>You can select one</span>
+<br>
+<select tp-model="selected">
+  <option selected>PHP</option>
+  <option>Ruby</option>
+  <option>C#</option>
+</select>
+<span>Selected: {{ selected }}</span>
+</div>
+
+Multiple select:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    selected: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+<span>You can select some of them</span>
+<br>
+<select tp-model="selected" multiple>
+  <option selected>PHP</option>
+  <option>Ruby</option>
+  <option>C#</option>
+</select>
+<span>Selected: {{ selected | json}}</span>
+</div>
+```
+
+Which will render
+
+<div id="bindings10" class="demo">
+<span>You can select some of them</span>
+<br>
+<select tp-model="selected" multiple>
+  <option selected>PHP</option>
+  <option>Ruby</option>
+  <option>C#</option>
+</select>
+<span>Selected: {{ selected | json}}</span>
+</div>

@@ -116,6 +116,55 @@ new Tulipan({
   }
 })
 
+new Tulipan({
+  el: '#bindings4',
+  data: {
+    message: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings5',
+  data: {
+    message: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings6',
+  data: {
+    checked: false
+  }
+})
+
+new Tulipan({
+  el: '#bindings7',
+  data: {
+    checkedLanguages: []
+  }
+})
+
+new Tulipan({
+  el: '#bindings8',
+  data: {
+    picked: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings9',
+  data: {
+    selected: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings10',
+  data: {
+    selected: ''
+  }
+})
+
 var vm = new Tulipan({
   el: '#properties1',
   data: {
