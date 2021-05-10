@@ -544,3 +544,130 @@ Which will render
 </select>
 <span>Selected: {{ selected | json}}</span>
 </div>
+
+### Value Bindings
+
+You may notice that for radio, checkbox, and select options, the binding values the `tp-model` are strings, or booleans if we're talking about checkboxes. For example:
+
+```html
+<!-- `picked` is a string "Python" when checked -->
+<input type="radio" tp-model="picked" value="Python">
+<!-- `toggle` is either true or false -->
+<input type="checkbox" tp-model="toggle">
+<!-- `selected` is a string "JavaScript" when selected -->
+<select tp-model="selected">
+  <option value="JavaScript">JavaScript</option>
+</select>
+```
+Anyway, sometimes we want to bind a dynamic property on a Tulipan instance. We can do this using `tp-bind`, besides this option allows binding the input value to non-string values.
+
+#### Checkbox
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    checked: false,
+    a: true,
+    b: false
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <input type="checkbox" id="checkbox" tp-model="checked" tp-bind:true-value="a" tp-bind:false-value="b">{{checked}}
+</div>
+```
+
+Which will render
+<div id="bindings11" class="demo">
+  <input type="checkbox" id="checkbox" tp-model="checked" tp-bind:true-value="a" tp-bind:false-value="b">{{checked}}
+</div>
+
+#### Radio
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    pick: '',
+    a: 'Apple',
+    b: 'Banana',
+    c: 'Cherry'
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>Fruits</span>
+  <input type="radio" tp-model="pick" tp-bind:value="a">{{a}}
+  <input type="radio" tp-model="pick" tp-bind:value="b">{{b}}
+  <input type="radio" tp-model="pick" tp-bind:value="c">{{c}}
+    <br>
+  <span>I want to buy: {{ pick }}</span>
+</div>
+```
+
+Which will render
+
+<div id="bindings12" class="demo">
+<span>Fruits: </span>
+  <input type="radio" tp-model="pick" tp-bind:value="a">{{a}}
+  <input type="radio" tp-model="pick" tp-bind:value="b">{{b}}
+  <input type="radio" tp-model="pick" tp-bind:value="c">{{c}}
+  <br>
+  <span>I want to buy: {{ pick }}</span>
+</div>
+
+#### Select Options
+
+We can even combine `tp-bind:value` directive with `tp-for` directive to dynamically render the options as follows:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    selected:'Python',
+    options: [
+      {languague: 'PHP'},
+      {languague: 'Python'},
+      {languague: 'C#'}
+    ] 
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+<span>You can select one</span>
+<br>
+<select tp-model="selected">
+  <option tp-for="option in options" tp-bind:value="option.languague">{{option.languague}}</option>
+</select>
+<span>Selected: {{ selected }}</span>
+</div>
+```
+
+
+Which will render
+
+<div id="bindings13" class="demo">
+<span>You can select one</span>
+<br>
+<select tp-model="selected">
+  <option tp-for="option in options" tp-bind:value="option.languague">{{option.languague}}</option>
+</select>
+<span>Selected: {{ selected }}</span>
+</div>
+

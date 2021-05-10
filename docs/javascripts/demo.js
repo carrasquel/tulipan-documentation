@@ -165,6 +165,37 @@ new Tulipan({
   }
 })
 
+new Tulipan({
+  el: '#bindings11',
+  data: {
+    checked: false,
+    a: true,
+    b: false
+  }
+})
+
+new Tulipan({
+  el: '#bindings12',
+  data: {
+    pick: '',
+    a: 'Apple',
+    b: 'Banana',
+    c: 'Cherry'
+  }
+})
+
+new Tulipan({
+  el: '#bindings13',
+  data: {
+    selected:'Python',
+    options: [
+      {languague: 'PHP'},
+      {languague: 'Python'},
+      {languague: 'C#'}
+    ] 
+  }
+})
+
 var vm = new Tulipan({
   el: '#properties1',
   data: {
