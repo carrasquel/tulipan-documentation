@@ -671,3 +671,101 @@ Which will render
 <span>Selected: {{ selected }}</span>
 </div>
 
+
+### Param Attributes 
+
+#### Lazy
+
+You can add the lazy attribute to make sure the `tp-model` syncs the input with the data after change events:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    message: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>This is a lazy message: {{ message }}</span>
+  <br>
+  <input type="text" tp-model="message" lazy placeholder="you can edit me!">
+</div>
+```
+
+Which will render
+
+<div id="bindings14" class="demo">
+  <span>This is a lazy message: {{ message }}</span>
+  <br>
+  <input type="text" tp-model="message" lazy placeholder="you can edit me!">
+</div>
+
+#### Number
+
+This attribute allows numbers only as inputs:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    age: 0
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>Please insert your age: {{ age }}</span>
+  <br>
+  <input tp-model="age" number>
+</div>
+```
+
+Which will render
+
+<div id="bindings15" class="demo">
+  <span>Please insert your age: {{ age }}</span>
+  <br>
+  <input tp-model="age" number>
+</div>
+
+#### Debounce
+
+This param makes it possible to set a minimum delay after each keystroke before the input is synced to the model:
+
+JavaScript
+```javascript
+
+new Tulipan({
+  el: '#app',
+  data: {
+    message: ''
+  }
+})
+```
+
+HTML
+```html
+<div id="app">
+  <span>This is a message: {{ message }}</span>
+  <br>
+  <input type="text" tp-model="message" debounce="500" placeholder="you can edit me!">
+</div>
+```
+
+Which will render
+
+<div id="bindings16" class="demo">
+  <span>This is a message: {{ message }}</span>
+  <br>
+  <input type="text" tp-model="message" debounce="500" placeholder="you can edit me!">
+</div>

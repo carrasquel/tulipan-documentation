@@ -196,6 +196,27 @@ new Tulipan({
   }
 })
 
+new Tulipan({
+  el: '#bindings14',
+  data: {
+    message: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings15',
+  data: {
+    age: 0
+  }
+})
+
+new Tulipan({
+  el: '#bindings16',
+  data: {
+    message: ''
+  }
+})
+
 var vm = new Tulipan({
   el: '#properties1',
   data: {
