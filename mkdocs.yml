@@ -16,6 +16,7 @@ nav:
     - Web Requests: guide/requests.md
     - Routing: guide/routing.md
     - Storing: guide/storing.md
+    - User interaction: guide/interactions.md 
 
 theme: 
   name: material
