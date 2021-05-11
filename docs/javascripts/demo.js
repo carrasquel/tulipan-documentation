@@ -289,6 +289,34 @@ new Tulipan({
 })
 
 new Tulipan({
+  el: '#renderings4',
+  data:{
+    yes: true
+  }
+})
+
+new Tulipan({
+  el: '#renderings5',
+  data:{
+    yes: false
+  }
+})
+
+new Tulipan({
+  el: '#renderings6',
+  data:{
+    showTemplate: true
+  }
+})
+
+new Tulipan({
+  el: '#renderings7',
+  data:{
+    yes: true
+  }
+})
+
+new Tulipan({
   el: '#demo8-app',
   data: {
     percents: [38.564, 49.242, 80.231],
