@@ -316,6 +316,28 @@ new Tulipan({
   }
 })
 
+var vm = new Tulipan({
+  el: '#interactions1',
+  data: {
+    name: 'Tulipan.js'
+  },
+  methods: {
+    sayHello: function (event) {
+      alert('Hello! welcome to ' + this.name + '!');
+      alert(event.target.tagName);
+    }
+  }
+})
+
+new Tulipan({
+  el: '#interactions2',
+  methods: {
+    print: function (msg) {
+      alert(msg)
+    }
+  }
+})
+
 new Tulipan({
   el: '#demo8-app',
   data: {
@@ -521,3 +543,5 @@ new Tulipan({
     }
   }
 })
+
+

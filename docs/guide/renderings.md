@@ -256,7 +256,7 @@ HTML
 
 Which will render
 
-<div id="renderings7", class="demo">
+<div id="renderings7" class="demo">
   <span>Did you say hello?</span>
   <br>
   <strong tp-show="yes">Yes, I say hello!</strong>
@@ -273,3 +273,4 @@ The directive `tp-if` is also lazy, which means if the initial condition is fals
 In contrast, `tp-show` is much simpler since the element is always compiled and preserved.
 
 Overall, `tp-if` has higher toggle costs while `tp-show` has higher initial render costs. It's recommended to use `tp-show` if you have to toggle something frequently, otherwise `tp-if`.
+
