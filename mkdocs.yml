@@ -10,11 +10,14 @@ nav:
     - Getting Started: started/started.md
   - User Guide:
     - Bindings: guide/bindings.md
+    - Properties: guide/properties.md
+    - User Interaction: guide/interactions.md 
     - Renderings: guide/renderings.md
     - Filters: guide/filters.md
     - Web Requests: guide/requests.md
     - Routing: guide/routing.md
     - Storing: guide/storing.md
+    
 
 theme: 
   name: material

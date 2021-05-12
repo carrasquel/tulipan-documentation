@@ -117,6 +117,133 @@ new Tulipan({
 })
 
 new Tulipan({
+  el: '#bindings4',
+  data: {
+    message: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings5',
+  data: {
+    message: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings6',
+  data: {
+    checked: false
+  }
+})
+
+new Tulipan({
+  el: '#bindings7',
+  data: {
+    checkedLanguages: []
+  }
+})
+
+new Tulipan({
+  el: '#bindings8',
+  data: {
+    picked: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings9',
+  data: {
+    selected: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings10',
+  data: {
+    selected: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings11',
+  data: {
+    checked: false,
+    a: true,
+    b: false
+  }
+})
+
+new Tulipan({
+  el: '#bindings12',
+  data: {
+    pick: '',
+    a: 'Apple',
+    b: 'Banana',
+    c: 'Cherry'
+  }
+})
+
+new Tulipan({
+  el: '#bindings13',
+  data: {
+    selected:'Python',
+    options: [
+      {languague: 'PHP'},
+      {languague: 'Python'},
+      {languague: 'C#'}
+    ] 
+  }
+})
+
+new Tulipan({
+  el: '#bindings14',
+  data: {
+    message: ''
+  }
+})
+
+new Tulipan({
+  el: '#bindings15',
+  data: {
+    age: 0
+  }
+})
+
+new Tulipan({
+  el: '#bindings16',
+  data: {
+    message: ''
+  }
+})
+
+var vm = new Tulipan({
+  el: '#properties1',
+  data: {
+    myAge: 20
+  },
+  computed: {
+    // a computed getter
+    myDadAge: function () {
+      // `this` points to the vm instance
+      return this.myAge + 35
+    }
+  }
+})
+
+var vm = new Tulipan({
+  el: '#properties2',
+  data: {
+    temperatureInCelsius: 24, 
+  },
+  computed: {
+    temperatureInFahrenheit: function(){
+        return this.temperatureInCelsius*1.8 + 32
+    }  
+  }
+})
+
+new Tulipan({
   el: '#renderings1',
   data: {
     cocktails: [
@@ -157,6 +284,56 @@ new Tulipan({
   methods: {
     display: function(index){
       alert(this.cocktails[index]);
+    }
+  }
+})
+
+new Tulipan({
+  el: '#renderings4',
+  data:{
+    yes: true
+  }
+})
+
+new Tulipan({
+  el: '#renderings5',
+  data:{
+    yes: false
+  }
+})
+
+new Tulipan({
+  el: '#renderings6',
+  data:{
+    showTemplate: true
+  }
+})
+
+new Tulipan({
+  el: '#renderings7',
+  data:{
+    yes: true
+  }
+})
+
+var vm = new Tulipan({
+  el: '#interactions1',
+  data: {
+    name: 'Tulipan.js'
+  },
+  methods: {
+    sayHello: function (event) {
+      alert('Hello! welcome to ' + this.name + '!');
+      alert(event.target.tagName);
+    }
+  }
+})
+
+new Tulipan({
+  el: '#interactions2',
+  methods: {
+    print: function (msg) {
+      alert(msg)
     }
   }
 })
@@ -366,3 +543,5 @@ new Tulipan({
     }
   }
 })
+
+
