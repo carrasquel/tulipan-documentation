@@ -1,6 +1,6 @@
 # Properties
 
-Tulipan.js lets you use computed properties to make any logic that requires more than one expression. This is very convenient because to avoid performance issues Tulipan.js limits binding expressions to only one, which could be restrictive.
+Tulipan.js lets you use computed properties to make any logic that requires more than one expression. This is very convenient because in order to avoid performance issues Tulipan.js limits binding expressions to only one, which could be restrictive.
 
 ## Computed Properties
 

@@ -217,7 +217,7 @@ HTML
 <div id="app">
   <template tp-if="showTemplate">
     <h1>Hi! This is a hidden template</h1>
-    <p>You can see me becasue showTemplate is true</p>
+    <p>You can see me because showTemplate is true</p>
   </template>
 </div>
 ```
@@ -226,7 +226,7 @@ Which will render
 <div id="renderings6" class="demo">
   <template tp-if="showTemplate">
     <h1>Hi! This is a hidden template</h1>
-    <p>You can see me becasue showTemplate is true</p>
+    <p>You can see me because showTemplate is true</p>
   </template>
 </div>
 

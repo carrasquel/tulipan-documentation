@@ -79,8 +79,8 @@ new Tulipan ({
     el: '#app',
     methods: {
         print: function (msg, event) {
-    // now we have access to the native event
-        event.preventDefault()
+          // now we have access to the native event
+          event.preventDefault()
         }
     }
 })
