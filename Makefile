@@ -13,13 +13,17 @@ deps:
 	$(PYTHON) -m pip install -r requirements.txt
 	$(PIP) install wheel
 	$(PIP) install git+https://github.com/psf/black
+	$(PIP) install flake8
 	$(PIP) install mdformat-gfm mdformat-frontmatter mdformat-footnote
-
+	$(PIP) install nose2
 serve:
 	$(PYTHON) -m mkdocs serve
 
 black:
 	$(PYTHON) -m black .
+
+flake:
+	$(PYTHON) -m flake8 .
 
 check-md:
 	$(PYTHON) -m mdformat --check .
@@ -27,3 +31,8 @@ check-md:
 format-md:
 	$(PYTHON) -m mdformat .
 
+test:
+	$(PYTHON) -m nose2
+
+python:
+	$(PYTHON)
